@@ -17,22 +17,44 @@ class Game_Windows:
     # Helpers
     def draw_window(self):
         self.draw_main_menu()
+        self.draw_settings()
+        self.draw_game()
 
 
     def draw_main_menu(self):
-        if self.get_curr_window() == "Main Menu":
+        if self.get_curr_window() == MAIN_MENU_WINDOW:
             self.clear_window()
             self.create_play_button()
             self.create_settings_button()
 
+    # Settings
+    def draw_settings(self):
+        if self.get_curr_window() == SETTINGS_WINDOW:
+            self.clear_window()
+            pygame.Surface.fill(self.get_def_window(), WHITE)
+            self.create_main_menu_button()
+
+    def draw_game(self):
+        if self.get_curr_window() == GAME_WINDOW:
+            self.clear_window()
+            pygame.Surface.fill(self.get_def_window(), WHITE)
+            self.create_main_menu_button()
+
     # Buttons
+    def create_main_menu_button(self): # Image is a placeholder
+        main_menu_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
+        main_menu_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y-300, image=main_menu_button_img)
+        if main_menu_button.draw(self.get_def_window()):
+            self.set_curr_window(MAIN_MENU_WINDOW)
+
     def create_play_button(self):
         play_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
         play_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y-200, image=play_button_img)
         if play_button.draw(self.get_def_window()):
             self.set_curr_window(GAME_WINDOW)
 
-    def create_settings_button(self):
+
+    def create_settings_button(self): # Image is a placeholder
         settings_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
         settings_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y, image=settings_button_img)
         if settings_button.draw(self.get_def_window()):

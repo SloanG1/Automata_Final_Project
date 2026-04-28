@@ -17,12 +17,12 @@ class Game_Loop:
     # Init
     def __init__(self):
         self.set_game_running(True)
-        self.set_game_window(Game_Windows().draw_window())
+        self.set_game_window(Game_Windows())
 
     # Helpers
 
     def update_screen(self):
-        self.get_game_window()
+        self.get_game_window().draw_window()
         pygame.display.update()
 
     def run_game_loop(self):
