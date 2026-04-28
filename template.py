@@ -16,7 +16,7 @@ screen = pygame.display.set_mode((700, 700))
 
 # Title and Icon
 pygame.display.set_caption("SUDOKU SOLVER")
-img = pygame.image.load('icon2.png')
+img = pygame.image.load('source/assets/icon2.png')
 pygame.display.set_icon(img)
 
 x = 0

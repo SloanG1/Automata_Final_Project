@@ -6,7 +6,7 @@ This file is where the game will run
 
 # Import Files/Modules
 import pygame
-from game_windows.default_window import Default_Window
+from source.game_windows.default_window import Default_Window
 pygame.init()
 
 class Game_Loop:

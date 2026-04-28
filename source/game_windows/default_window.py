@@ -6,7 +6,7 @@ This file is the window that all windows will reference
 
 #Import Files/Modules
 import pygame
-from config import *  # This lets all functions and variables be accessible
+from source.interactors.config import *  # This lets all functions and variables be accessible
 
 class Default_Window:
 	# Data Attributes
@@ -17,7 +17,7 @@ class Default_Window:
 	__font = "Error"
 
 	# Init
-	def __init__(self, window_width=WIDTH, window_height=HEIGHT, background=BLUE, game_name=GAME_NAME, font=FONT1):
+	def __init__(self, window_width=WIDTH, window_height=HEIGHT, background=WHITE, game_name=GAME_NAME, font=FONT1):
 		self.set_window_width(window_width)
 		self.set_window_height(window_height)
 		self.set_background(background)
