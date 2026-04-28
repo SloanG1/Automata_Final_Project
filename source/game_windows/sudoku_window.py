@@ -18,19 +18,21 @@ class Sudoku_Window:
         self.set_def_window(def_window)
         self.set_game_board_array(BLANK_SUDOKU)
         self.set_new_game(True)
+        self.create_grid()
 
     # Helpers
 
     # Combine all elements here
     def draw_board(self):
-        if self.get_new_game():
-            self.create_grid()
-            self.set_new_game(False)
         self.draw_grid()
+        self.draw_check_numbers()
 
-    # These are the numbers shown near the bottom of a sudoku board
+    # These are the numbers shown next to the sudoku board
     def draw_check_numbers(self):
-        pass
+        check_numbers_img = pygame.image.load("../assets/sub_grid_square.png").convert_alpha()
+        for y_pos in range(100, 700, 50):
+            check_squares = Button(width=50, height=50, x_pos = 30, y_pos=y_pos, image=check_numbers_img)
+            check_squares.draw(self.get_def_window())
 
     # This will draw the numbers on the main grid
     def draw_main_numbers(self):
@@ -56,8 +58,6 @@ class Sudoku_Window:
             for cols in range(len(self.get_game_board_array()[rows])):
                 sub_grid = self.get_game_board_array()[rows][cols]
                 if sub_grid.draw(self.get_def_window()):
-                    sub_grid_selected_square_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
-                    sub_grid.set_image(sub_grid_selected_square_img)
                     self.calculate_current_sub_grid(rows, cols)
 
     def calculate_current_sub_grid(self, rows, cols):
