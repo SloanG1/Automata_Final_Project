@@ -29,10 +29,11 @@ class Sudoku_Window:
 
     # These are the numbers shown next to the sudoku board
     def draw_check_numbers(self):
-        check_numbers_img = pygame.image.load("../../front_end/assets/sub_grid_square.png").convert_alpha()
-        for y_pos in range(100, 700, 50):
+        for key, y_pos in NUMBER_ARRAY.items():
+            check_numbers_img = pygame.image.load(key).convert_alpha()
             check_squares = Button(width=50, height=50, x_pos = 30, y_pos=y_pos, image=check_numbers_img)
             check_squares.draw(self.get_def_window())
+
 
     # This will draw the numbers on the main grid
     def draw_main_numbers(self):
@@ -65,7 +66,7 @@ class Sudoku_Window:
         cols = cols + 1
         sub_grid = (rows * 9) + cols
         self.set_curr_sub_grid(sub_grid)
-        print(self.get_curr_sub_grid())
+
 
     # Getters
     def get_curr_sub_grid(self):
