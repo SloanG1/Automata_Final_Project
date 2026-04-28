@@ -2,12 +2,13 @@
 from source.interactors.button import Button
 from source.interactors.config import *
 from source.game_windows.default_window import Default_Window
+from source.game_windows.sudoku_window import Sudoku_Window
 import pygame
 
 class Game_Windows:
     # Data Attributes
-    __curr_window = "None"
-    __def_window = "None"
+    __curr_window = None
+    __def_window =  None
 
     # Init
     def __init__(self):
