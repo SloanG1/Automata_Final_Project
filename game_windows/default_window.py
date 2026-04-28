@@ -8,7 +8,7 @@ This file is the window that all windows will reference
 import pygame
 from config import *  # This lets all functions and variables be accessible
 
-class default_window:
+class Default_Window:
 	# Data Attributes
 	__window_width = -1
 	__window_height = -1
@@ -17,27 +17,20 @@ class default_window:
 	__font = "Error"
 
 	# Init
-	def __init__(self, window_width=WIDTH, window_height=HEIGHT, background=WHITE, game_name=GAME_NAME, font=FONT1):
+	def __init__(self, window_width=WIDTH, window_height=HEIGHT, background=BLUE, game_name=GAME_NAME, font=FONT1):
 		self.set_window_width(window_width)
 		self.set_window_height(window_height)
 		self.set_background(background)
 		self.set_game_name(game_name)
 		self.set_font(pygame.font.Font(font, 30))
 
-		# Title Font
-		self.title_text = self.get_font().render('CODE: ROB', True, (255, 0, 0))
-
 	# Helpers
 	def init_window(self):
 		game_window = pygame.display.set_mode((self.get_window_width(), self.get_window_height()))  # Init window
 		game_window.fill(self.get_background())  # Set background
-		self.draw_title(game_window)
+		pygame.display.set_caption(self.get_game_name())
+		pygame.display.update()
 		return game_window  # Return game_window
-
-	def draw_title(self, game_window):
-		pygame.draw.rect(game_window, (255, 0, 0),(50, 50, self.get_window_width() - 250, self.get_window_height() - 250))
-		game_window.blit(self.title_text, (self.get_window_width() / 2.7, self.get_window_height() / 20))
-		pygame.display.set_caption(self.get_game_name())  # Set the name
 
 	# Getters
 	def get_window_width(self):
