@@ -25,7 +25,6 @@ class Button(sprite):
         surface.blit(self.image, (self.rect.x, self.rect.y))
         self.set_is_clicked(False)
         return self.get_action()
-
     def hovered(self):
         pass
 

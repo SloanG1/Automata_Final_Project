@@ -9,11 +9,13 @@ class Game_Windows:
     # Data Attributes
     __curr_window = None
     __def_window =  None
+    __sudoku_window = None
 
     # Init
     def __init__(self):
         self.set_curr_window(MAIN_MENU_WINDOW)
         self.set_def_window(Default_Window().init_window())
+        self.set_sudoku_window(Sudoku_Window(self.get_def_window()))
 
     # Helpers
     def draw_window(self):
@@ -39,6 +41,7 @@ class Game_Windows:
         if self.get_curr_window() == GAME_WINDOW:
             self.clear_window()
             pygame.Surface.fill(self.get_def_window(), WHITE)
+            self.get_sudoku_window().draw_board()
             self.create_main_menu_button()
 
     # Buttons
@@ -53,7 +56,6 @@ class Game_Windows:
         play_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y-200, image=play_button_img)
         if play_button.draw(self.get_def_window()):
             self.set_curr_window(GAME_WINDOW)
-
 
     def create_settings_button(self): # Image is a placeholder
         settings_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
@@ -72,11 +74,17 @@ class Game_Windows:
     def get_def_window(self):
         return self.__def_window
 
+    def get_sudoku_window(self):
+        return self.__sudoku_window
+
     # Setters
     def set_curr_window(self, curr_window):
         self.__curr_window = curr_window
 
     def set_def_window(self, def_window):
         self.__def_window = def_window
+
+    def set_sudoku_window(self, sudoku_window):
+        self.__sudoku_window = sudoku_window
 
     # To String
