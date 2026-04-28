@@ -6,7 +6,7 @@ This file is the window that all windows will reference
 
 #Import Files/Modules
 import pygame
-from source.interactors.config import *  # This lets all functions and variables be accessible
+from source.back_end.interactors.config import *  # This lets all functions and variables be accessible
 
 class Default_Window:
 	# Data Attributes

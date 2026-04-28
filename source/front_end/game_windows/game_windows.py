@@ -1,8 +1,8 @@
 # Import Files/Modules
-from source.interactors.button import Button
-from source.interactors.config import *
-from source.game_windows.default_window import Default_Window
-from source.game_windows.sudoku_window import Sudoku_Window
+from source.back_end.interactors.button import Button
+from source.back_end.interactors.config import *
+from source.front_end.game_windows.default_window import Default_Window
+from source.front_end.game_windows.sudoku_window import Sudoku_Window
 import pygame
 
 class Game_Windows:
@@ -18,6 +18,10 @@ class Game_Windows:
         self.set_sudoku_window(Sudoku_Window(self.get_def_window()))
 
     # Helpers
+    def draw_title(self):
+        title = pygame.font.Font(FONT1,50).render("Sudoku Life", True, BLACK)
+        self.get_def_window().blit(title, (WIDTH / 2.8, HEIGHT / 20))
+
     def draw_window(self):
         self.draw_main_menu()
         self.draw_settings()
@@ -27,6 +31,7 @@ class Game_Windows:
     def draw_main_menu(self):
         if self.get_curr_window() == MAIN_MENU_WINDOW:
             self.clear_window()
+            self.draw_title()
             self.create_play_button()
             self.create_settings_button()
 
@@ -46,19 +51,19 @@ class Game_Windows:
 
     # Buttons
     def create_main_menu_button(self): # Image is a placeholder
-        main_menu_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
+        main_menu_button_img = pygame.image.load(PLAY_GAME_BUTTON).convert_alpha()
         main_menu_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y-300, image=main_menu_button_img)
         if main_menu_button.draw(self.get_def_window()):
             self.set_curr_window(MAIN_MENU_WINDOW)
 
     def create_play_button(self):
-        play_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
+        play_button_img = pygame.image.load(PLAY_GAME_BUTTON).convert_alpha()
         play_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y-200, image=play_button_img)
         if play_button.draw(self.get_def_window()):
             self.set_curr_window(GAME_WINDOW)
 
     def create_settings_button(self): # Image is a placeholder
-        settings_button_img = pygame.image.load("../assets/buttons/play_game_button.png").convert_alpha()
+        settings_button_img = pygame.image.load(PLAY_GAME_BUTTON).convert_alpha()
         settings_button = Button(x_pos=CENTER_X, y_pos=CENTER_Y, image=settings_button_img)
         if settings_button.draw(self.get_def_window()):
             self.set_curr_window(SETTINGS_WINDOW)

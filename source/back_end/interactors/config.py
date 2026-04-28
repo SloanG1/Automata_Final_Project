@@ -53,3 +53,4 @@ FONT1 = 'freesansbold.ttf'
 
 # Asset Settings
 DEFAULT_IMAGE = 'source/assets/default.png'
+PLAY_GAME_BUTTON = 'front_end/assets/buttons/play_game_button.png'

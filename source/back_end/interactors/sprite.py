@@ -1,5 +1,5 @@
 # Import Files/Modules
-from source.interactors.config import *
+from source.back_end.interactors.config import *
 
 class sprite:
 	# Data Attributes
