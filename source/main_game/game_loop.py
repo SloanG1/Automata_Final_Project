@@ -6,7 +6,7 @@ This file is where the game will run
 
 # Import Files/Modules
 import pygame
-from source.game_windows.default_window import Default_Window
+from source.game_windows.game_windows import Game_Windows
 pygame.init()
 
 class Game_Loop:
@@ -17,12 +17,13 @@ class Game_Loop:
     # Init
     def __init__(self):
         self.set_game_running(True)
-        self.set_game_window(Default_Window().init_window())
+        self.set_game_window(Game_Windows().draw_window())
 
     # Helpers
 
     def update_screen(self):
         self.get_game_window()
+        pygame.display.update()
 
     def run_game_loop(self):
         while self.get_game_running():

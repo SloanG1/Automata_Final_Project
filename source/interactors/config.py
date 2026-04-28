@@ -22,6 +22,11 @@ GRID_SIZE = MID_GRID_SIZE * 3 # Size of the entire grid
 SPRITE_WIDTH = SUB_GRID_SIZE
 SPRITE_HEIGHT = SUB_GRID_SIZE
 
+# Windows Settings
+MAIN_MENU_WINDOW = "Main Menu"
+SETTINGS_WINDOW = "Settings"
+GAME_WINDOW = "Game Window"
+
 # Color Types
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)

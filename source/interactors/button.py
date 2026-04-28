@@ -3,7 +3,7 @@ from source.interactors.config import *
 from source.interactors.sprite import sprite
 import pygame
 
-class button(sprite):
+class Button(sprite):
     # Data Attributes
     __is_hover = None
     __is_clicked = None
