@@ -1,3 +1,7 @@
+"""
+This file is will serve as an template to create the base game functionality
+All code shown in this file was written by me in the past
+"""
 
 # import pygame library
 import pygame
