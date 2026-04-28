@@ -23,7 +23,7 @@ class Sudoku_Window:
     # Helpers
 
     # Combine all elements here
-    def draw_board(self):
+    def update_board(self):
         self.draw_grid()
         self.draw_check_numbers()
 
@@ -49,6 +49,7 @@ class Sudoku_Window:
             # Set x_pos
             for x_pos in range(270, 630, 40):
                 sub_grid_square = Button(width=42, height=42, x_pos=x_pos, y_pos=y_pos, image=sub_grid_square_img)
+                sub_grid_square.draw(self.get_def_window())
                 self.get_game_board_array()[int((y_pos - 190) / 40)][int((x_pos - 270) / 40)] = sub_grid_square
 
     # This will draw the main ngrid

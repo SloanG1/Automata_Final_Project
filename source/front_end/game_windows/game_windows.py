@@ -46,7 +46,8 @@ class Game_Windows:
         if self.get_curr_window() == GAME_WINDOW:
             self.clear_window()
             pygame.Surface.fill(self.get_def_window(), WHITE)
-            self.get_sudoku_window().draw_board()
+            sudoku_window = Sudoku_Window(self.get_def_window())
+            sudoku_window.update_board()
             self.create_main_menu_button()
 
     # Buttons

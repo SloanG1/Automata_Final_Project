@@ -13,6 +13,7 @@ class Game_Loop:
     # Data Attributes
     __game_running = None
     __game_window = None
+    __mouse_pos = None
 
     # Init
     def __init__(self):
@@ -31,6 +32,9 @@ class Game_Loop:
                 if event.type == pygame.QUIT:
                     self.set_game_running(False)
 
+                if event.type == pygame.MOUSEMOTION:
+                    self.set_mouse_pos(pygame.mouse.get_pos())
+
             self.update_screen()
 
         pygame.quit()
@@ -43,11 +47,17 @@ class Game_Loop:
     def get_game_window(self):
         return self.__game_window
 
+    def get_mouse_pos(self):
+        return self.__mouse_pos
+
     # Setters
     def set_game_running(self, game_running):
         self.__game_running = game_running
 
     def set_game_window(self, game_window):
         self.__game_window = game_window
+
+    def set_mouse_pos(self, mouse_pos):
+        self.__mouse_pos = mouse_pos
 
     # To String
