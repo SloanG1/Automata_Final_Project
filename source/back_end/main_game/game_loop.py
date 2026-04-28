@@ -51,6 +51,3 @@ class Game_Loop:
         self.__game_window = game_window
 
     # To String
-
-
-
