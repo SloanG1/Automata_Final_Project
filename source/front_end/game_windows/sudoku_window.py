@@ -1,5 +1,6 @@
 # Import Files/Modules
 from source.back_end.interactors.button import Button
+from source.back_end.main_game.sudoku import Sudoku
 from source.back_end.interactors.config import *
 import pygame
 
@@ -34,17 +35,16 @@ class Sudoku_Window:
             check_squares = Button(width=50, height=50, x_pos = 30, y_pos=y_pos, image=check_numbers_img)
             check_squares.draw(self.get_def_window())
 
-
-    # This will draw the numbers on the main grid
-    def draw_main_numbers(self):
-        pass
-
     # This will draw the note numbers on the main grid
-    def draw_note_numbers(self):
-        pass
+    def draw_main_numbers(self):
+        sudoku_grid = Sudoku()
+        sudoku_grid.generate_solved_sudoku()
+        sudoku_game = sudoku_grid.get_builder_sudoku()
+
 
     # This will create the main grid
     def create_grid(self):
+        self.draw_main_numbers()
         sub_grid_square_img = pygame.image.load("../../front_end/assets/sub_grid_square.png").convert_alpha()
         for y_pos in range(190, 550, 40):
             # Set x_pos

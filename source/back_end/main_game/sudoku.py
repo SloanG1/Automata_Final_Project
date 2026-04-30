@@ -1,6 +1,5 @@
 # Add Files/Modules
 from source.back_end.interactors.config import *
-from random import Random
 import random
 
 class Sudoku:
@@ -24,20 +23,36 @@ class Sudoku:
         self.set_difficulty("easy")
 
     # Helpers
-    def generate_random_number(self):
-        random_num = random.choice(SUDOKU_NUMBERS)
-        return random_num
+    def generate_random_number_list(self):
+        random_num_list = list(range(1, 10))
+        random.shuffle(random_num_list)
+        return random_num_list
 
     def generate_solved_sudoku(self):
-        is_valid = False
-        while not is_valid:
-            for rows in range(9):
-                for columns in range(9):
-                    self.get_builder_sudoku()[rows][columns] = self.generate_random_number()
-            is_valid = self.check_validity()
-            print(is_valid)
+        empty_location = self.get_empty_location()
 
-        return self.get_builder_sudoku()
+        if not empty_location:
+            return True
+        row, col = empty_location
+
+        for num in self.generate_random_number_list():
+            if self.check_validity(row, col, num):
+                self.get_builder_sudoku()[row][col] = num
+
+                if self.generate_solved_sudoku():
+                    return True
+
+                self.get_builder_sudoku()[row][col] = 0
+
+        return False
+
+    # Find an empty spot in the sudoku and return the row and col
+    def get_empty_location(self):
+        for row in range(9):
+            for col in range(9):
+                if self.get_builder_sudoku()[row][col] == 0:
+                    return row, col
+        return None
 
     def check_validity(self, row, col, num):
         row_valid = self.row_check(row, num)
@@ -60,12 +75,14 @@ class Sudoku:
         for numbers in range(9):
             if self.get_builder_sudoku()[row][numbers] == num:
                 return False
+        return True
 
     # This checks to see if the numbers in the column do not validate sudoku
     def column_check(self, col, num):
-        for numbers in range(9):
-            if self.get_builder_sudoku()[col][numbers] == num:
+        for row in range(9):
+            if self.get_builder_sudoku()[row][col] == num:
                 return False
+        return True
 
     # This checks to see if the numbers in the subgrid do not validate sudoku
     def sub_grid_check(self, row, col, num):
@@ -123,7 +140,3 @@ class Sudoku:
         self.__difficulty = difficulty
 
     # To String
-
-test = Sudoku()
-
-print(test.generate_solved_sudoku())
