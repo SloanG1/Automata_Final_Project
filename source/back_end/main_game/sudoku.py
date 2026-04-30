@@ -40,7 +40,7 @@ class Sudoku:
                 check_array.append(numbers)
             else:
                 return False # Does not validate sudoku
-        return True
+        return True # Validates sudoku
 
     # This checks to see if the numbers in the column do not validate sudoku
     def column_check(self, column):
@@ -50,11 +50,40 @@ class Sudoku:
                 check_array.append(rows[column])
             else:
                 return False  # Does not validate sudoku
-        return True
+        return True # Validates sudoku
 
     # This checks to see if the numbers in the subgrid do not validate sudoku
     def sub_grid_check(self, row, column):
-        pass
+        row_range = self.get_row_range(row)
+        column_range = self.get_column_range(column)
+        check_array = []
+        for rows in row_range:
+            for columns in column_range:
+                if self.get_builder_sudoku()[rows][columns] not in check_array:
+                    check_array.append(self.get_builder_sudoku()[rows][columns])
+                else:
+                    return False  # Does not validate sudoku
+        return True  # Validates sudoku
+
+    @staticmethod
+    def get_row_range(row):
+        if row <= 2:
+            row_range = [0, 1, 2]
+        elif row <= 5:
+            row_range = [3, 4, 5]
+        else:
+            row_range = [6, 7, 8]
+        return row_range
+
+    @staticmethod
+    def get_column_range(column):
+        if column <= 2:
+            column_range = [0, 1, 2]
+        elif column <= 5:
+            column_range = [3, 4, 5]
+        else:
+            column_range = [6, 7, 8]
+        return column_range
 
     # Getters
     def get_current_cell(self):
@@ -104,4 +133,4 @@ class Sudoku:
 
 test = Sudoku()
 
-print(test.column_check(3))
+print(test.sub_grid_check(2, 2))
