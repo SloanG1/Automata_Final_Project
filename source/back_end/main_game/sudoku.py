@@ -29,10 +29,12 @@ class Sudoku:
     def generate_solved_puzzle(self):
         pass
 
+    def remove_numbers(self):
+        pass
+
     # This checks to see if the numbers in the row do not validate sudoku
-    def row_check(self, row, column):
+    def row_check(self, row):
         check_array = []
-        print(self.get_builder_sudoku()[row])
         for numbers in self.get_builder_sudoku()[row]:
             if numbers not in check_array:
                 check_array.append(numbers)
@@ -41,14 +43,17 @@ class Sudoku:
         return True
 
     # This checks to see if the numbers in the column do not validate sudoku
-    def column_check(self, row, column):
-        pass
+    def column_check(self, column):
+        check_array = []
+        for rows in self.get_builder_sudoku():
+            if rows[column] not in check_array:
+                check_array.append(rows[column])
+            else:
+                return False  # Does not validate sudoku
+        return True
 
     # This checks to see if the numbers in the subgrid do not validate sudoku
     def sub_grid_check(self, row, column):
-        pass
-
-    def remove_numbers(self):
         pass
 
     # Getters
@@ -99,4 +104,4 @@ class Sudoku:
 
 test = Sudoku()
 
-print(test.row_check(3, 3))
+print(test.column_check(3))
