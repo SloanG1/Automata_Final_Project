@@ -7,6 +7,7 @@ class Sudoku:
     __current_cell = None
     __note_active = None
     __solved_sudoku_grid = []
+    __builder_sudoku = []
     __unsolved_sudoku_grid = []
     __numbers_removed = -1
     __difficulty = None
@@ -16,7 +17,9 @@ class Sudoku:
         self.set_current_cell(None)
         self.set_note_active(False)
         self.set_solved_sudoku_grid([])
+        self.set_builder_sudoku(BLANK_SUDOKU)
         self.set_unsolved_sudoku_grid([])
+        self.set_numbers_removed(-1)
         self.set_difficulty("easy")
 
     # Helpers
@@ -24,7 +27,26 @@ class Sudoku:
         pass
 
     def generate_solved_puzzle(self):
-        self.get_unsolved_sudoku_grid()
+        pass
+
+    # This checks to see if the numbers in the row do not validate sudoku
+    def row_check(self, row, column):
+        check_array = []
+        print(self.get_builder_sudoku()[row])
+        for numbers in self.get_builder_sudoku()[row]:
+            if numbers not in check_array:
+                check_array.append(numbers)
+            else:
+                return False # Does not validate sudoku
+        return True
+
+    # This checks to see if the numbers in the column do not validate sudoku
+    def column_check(self, row, column):
+        pass
+
+    # This checks to see if the numbers in the subgrid do not validate sudoku
+    def sub_grid_check(self, row, column):
+        pass
 
     def remove_numbers(self):
         pass
@@ -38,6 +60,9 @@ class Sudoku:
 
     def get_solved_sudoku_grid(self):
         return self.__solved_sudoku_grid
+
+    def get_builder_sudoku(self):
+        return self.__builder_sudoku
 
     def get_unsolved_sudoku_grid(self):
         return self.__unsolved_sudoku_grid
@@ -58,6 +83,9 @@ class Sudoku:
     def set_solved_sudoku_grid(self, solved_sudoku_grid):
         self.__solved_sudoku_grid = solved_sudoku_grid
 
+    def set_builder_sudoku(self, builder_sudoku):
+        self.__builder_sudoku = builder_sudoku
+
     def set_unsolved_sudoku_grid(self, unsolved_sudoku_grid):
         self.__unsolved_sudoku_grid = unsolved_sudoku_grid
 
@@ -68,3 +96,7 @@ class Sudoku:
         self.__difficulty = difficulty
 
     # To String
+
+test = Sudoku()
+
+print(test.row_check(3, 3))
