@@ -58,7 +58,7 @@ DEFAULT_IMAGE = 'source/assets/default.png'
 PLAY_GAME_BUTTON = '../../front_end/assets/buttons/play_game_button.png'
 
 # Add the number images
-NUMBER_ZERO = DEFAULT_IMAGE
+NUMBER_ZERO = "../../front-end/assets/sub_grid_square.png"
 NUMBER_ONE = "../../front_end/assets/numbers/number_one.png"
 NUMBER_TWO = "../../front_end/assets/numbers/number_two.png"
 NUMBER_THREE = "../../front_end/assets/numbers/number_three.png"

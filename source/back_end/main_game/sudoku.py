@@ -1,5 +1,6 @@
 # Add Files/Modules
 from source.back_end.interactors.config import *
+from random import Random
 import random
 
 class Sudoku:
@@ -22,7 +23,12 @@ class Sudoku:
         self.set_numbers_removed(-1)
         self.set_difficulty("easy")
 
+
     # Helpers
+    def build_sudoku(self):
+        self.generate_solved_sudoku()
+        self.generate_unsolved_sudoku()
+
     def generate_random_number_list(self):
         random_num_list = list(range(1, 10))
         random.shuffle(random_num_list)
@@ -64,11 +70,20 @@ class Sudoku:
             is_valid = False
         return is_valid
 
-    def generate_unsolved_sudoku(self):
-        pass
+    def get_remove_numbers(self):
+        removed_numbers = 0
+        diff_dict = {"easy":20, "medium":30, "hard":40}
+        removed_numbers = diff_dict.get(self.get_difficulty())
+        return removed_numbers
 
-    def remove_numbers(self):
-        pass
+    def generate_unsolved_sudoku(self):
+        self.set_solved_sudoku_grid(self.get_builder_sudoku())
+        for numbers in range(self.get_remove_numbers()):
+            rand_row = Random().randrange(0, 9)
+            rand_col = Random().randrange(0, 9)
+            self.get_builder_sudoku()[rand_row][rand_col] = 0
+
+        self.set_unsolved_sudoku_grid(self.get_builder_sudoku())
 
     # This checks to see if the numbers in the row do not validate sudoku
     def row_check(self, row, num):

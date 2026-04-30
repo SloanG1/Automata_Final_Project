@@ -38,8 +38,8 @@ class Sudoku_Window:
     # This will draw the note numbers on the main grid
     def get_grid_numbers(self):
         sudoku_grid = Sudoku()
-        sudoku_grid.generate_solved_sudoku()
-        sudoku_game = sudoku_grid.get_builder_sudoku()
+        sudoku_grid.build_sudoku()
+        sudoku_game = sudoku_grid.get_unsolved_sudoku_grid()
         return sudoku_game
 
     def get_number_images(self, numbers):
@@ -72,16 +72,16 @@ class Sudoku_Window:
                 except TypeError:
                     pass
 
-
-
-    # This will draw the main ngrid
+    # This will draw the main grid
     def draw_grid(self):
-        self.create_grid()
         for rows in range(len(self.get_game_board_array())):
             for cols in range(len(self.get_game_board_array()[rows])):
                 sub_grid = self.get_game_board_array()[rows][cols]
-                if sub_grid.draw(self.get_def_window()):
-                    self.calculate_current_sub_grid(rows, cols)
+                try:
+                    if sub_grid.draw(self.get_def_window()):
+                        self.calculate_current_sub_grid(rows, cols)
+                except AttributeError:
+                    pass
 
     def calculate_current_sub_grid(self, rows, cols):
         cols = cols + 1
