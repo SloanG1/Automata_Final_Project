@@ -36,22 +36,43 @@ class Sudoku_Window:
             check_squares.draw(self.get_def_window())
 
     # This will draw the note numbers on the main grid
-    def draw_main_numbers(self):
+    def get_grid_numbers(self):
         sudoku_grid = Sudoku()
         sudoku_grid.generate_solved_sudoku()
         sudoku_game = sudoku_grid.get_builder_sudoku()
+        return sudoku_game
+
+    def get_number_images(self, numbers):
+        num_dict = {1: NUMBER_ONE, 2: NUMBER_TWO, 3: NUMBER_THREE,
+                    4: NUMBER_FOUR, 5: NUMBER_FIVE, 6: NUMBER_SIX,
+                    7: NUMBER_SEVEN, 8: NUMBER_EIGHT, 9: NUMBER_NINE}
+        return num_dict.get(numbers)
 
 
     # This will create the main grid
     def create_grid(self):
-        self.draw_main_numbers()
-        sub_grid_square_img = pygame.image.load("../../front_end/assets/sub_grid_square.png").convert_alpha()
-        for y_pos in range(190, 550, 40):
-            # Set x_pos
-            for x_pos in range(270, 630, 40):
-                sub_grid_square = Button(width=42, height=42, x_pos=x_pos, y_pos=y_pos, image=sub_grid_square_img)
-                sub_grid_square.draw(self.get_def_window())
-                self.get_game_board_array()[int((y_pos - 190) / 40)][int((x_pos - 270) / 40)] = sub_grid_square
+        sudoku_game = self.get_grid_numbers()
+
+        for row in range(9):
+            for col in range(9):
+                number = sudoku_game[row][col]
+                image = self.get_number_images(number)
+                try:
+                    grid_num_img = pygame.image.load(image).convert_alpha()
+
+                    x_pos = 270 + (col * 40)
+                    y_pos = 190 + (row * 40)
+
+                    sub_grid_square = Button(width=42, height=42, x_pos=x_pos, y_pos=y_pos, image=grid_num_img)
+
+                    sub_grid_square.draw(self.get_def_window())
+
+                    self.get_game_board_array()[row][col] = sub_grid_square
+
+                except TypeError:
+                    pass
+
+
 
     # This will draw the main ngrid
     def draw_grid(self):

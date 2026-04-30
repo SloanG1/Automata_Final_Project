@@ -58,15 +58,16 @@ DEFAULT_IMAGE = 'source/assets/default.png'
 PLAY_GAME_BUTTON = '../../front_end/assets/buttons/play_game_button.png'
 
 # Add the number images
-NUMBER_ONE = '../../front_end/assets/numbers/number_one.png'
-NUMBER_TWO = '../../front_end/assets/numbers/number_two.png'
-NUMBER_THREE = '../../front_end/assets/numbers/number_three.png'
-NUMBER_FOUR = '../../front_end/assets/numbers/number_four.png'
-NUMBER_FIVE = '../../front_end/assets/numbers/number_five.png'
-NUMBER_SIX = '../../front_end/assets/numbers/number_six.png'
-NUMBER_SEVEN = '../../front_end/assets/numbers/number_seven.png'
-NUMBER_EIGHT = '../../front_end/assets/numbers/number_eight.png'
-NUMBER_NINE = '../../front_end/assets/numbers/number_nine.png'
+NUMBER_ZERO = DEFAULT_IMAGE
+NUMBER_ONE = "../../front_end/assets/numbers/number_one.png"
+NUMBER_TWO = "../../front_end/assets/numbers/number_two.png"
+NUMBER_THREE = "../../front_end/assets/numbers/number_three.png"
+NUMBER_FOUR = "../../front_end/assets/numbers/number_four.png"
+NUMBER_FIVE = "../../front_end/assets/numbers/number_five.png"
+NUMBER_SIX = "../../front_end/assets/numbers/number_six.png"
+NUMBER_SEVEN = "../../front_end/assets/numbers/number_seven.png"
+NUMBER_EIGHT = "../../front_end/assets/numbers/number_eight.png"
+NUMBER_NINE = "../../front_end/assets/numbers/number_nine.png"
 
 NUMBER_ARRAY = {NUMBER_ONE:100, NUMBER_TWO:150, NUMBER_THREE:200,
                 NUMBER_FOUR:250, NUMBER_FIVE:300, NUMBER_SIX:350,
