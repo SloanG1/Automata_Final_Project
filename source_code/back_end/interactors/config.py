@@ -54,7 +54,7 @@ SUDOKU_NUMBERS = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 FONT1 = 'freesansbold.ttf'
 
 # Asset Settings
-DEFAULT_IMAGE = 'source/assets/default.png'
+DEFAULT_IMAGE = 'source_code/assets/default.png'
 PLAY_GAME_BUTTON = '../../front_end/assets/buttons/play_game_button.png'
 
 # Add the number images

@@ -1,6 +1,6 @@
 # Import Files/Modules
-from source.back_end.interactors.config import *
-from source.back_end.interactors.sprite import sprite
+from source_code.back_end.interactors.config import *
+from source_code.back_end.interactors.sprite import sprite
 import pygame
 
 class Button(sprite):

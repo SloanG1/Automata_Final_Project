@@ -1,7 +1,7 @@
 # Import Files/Modules
-from source.back_end.interactors.button import Button
-from source.back_end.main_game.sudoku import Sudoku
-from source.back_end.interactors.config import *
+from source_code.back_end.interactors.button import Button
+from source_code.back_end.main_game.sudoku import Sudoku
+from source_code.back_end.interactors.config import *
 import pygame
 
 class Sudoku_Window:

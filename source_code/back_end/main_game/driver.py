@@ -1,4 +1,4 @@
-from source.back_end.main_game.game_loop import Game_Loop
+from source_code.back_end.main_game.game_loop import Game_Loop
 
 def main():
     Game_Loop().run_game_loop()

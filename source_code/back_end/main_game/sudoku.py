@@ -1,5 +1,5 @@
 # Add Files/Modules
-from source.back_end.interactors.config import *
+from source_code.back_end.interactors.config import *
 from random import Random
 import random
 
