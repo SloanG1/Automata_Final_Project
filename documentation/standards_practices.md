@@ -15,3 +15,6 @@ Driver File:
 
 Config File:
     Config file should only contain constant variables and should be accessible to all directories
+
+
+<a href="https://github.com/SloanG1/Automata_Final_Project/blob/main/README.md">README FILE</a>
