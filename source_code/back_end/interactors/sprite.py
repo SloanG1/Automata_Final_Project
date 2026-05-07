@@ -8,7 +8,6 @@ class sprite:
 	__x_pos = -1
 	__y_pos = -1
 	__image = "Error"
-	__sprite_char = "Error"
 
 	# Init
 	def __init__(self, width=SPRITE_WIDTH, height=SPRITE_HEIGHT, x_pos=CENTER_X, y_pos=CENTER_Y, image=DEFAULT_IMAGE):
@@ -37,9 +36,6 @@ class sprite:
 	def get_image(self):
 		return self.__image
 
-	def get_sprite_char(self):
-		return self.__sprite_char
-
 	# Setters
 	def set_width(self, width):
 		self.__width = width
@@ -55,9 +51,6 @@ class sprite:
 
 	def set_image(self, image):
 		self.__image = image
-
-	def set_sprite_char(self, sprite_char):
-		self.__sprite_char = sprite_char
 
 	# ToString
 	def __str__(self):

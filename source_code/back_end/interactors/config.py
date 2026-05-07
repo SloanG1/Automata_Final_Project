@@ -56,6 +56,9 @@ FONT1 = 'freesansbold.ttf'
 # Asset Settings
 DEFAULT_IMAGE = 'source_code/assets/default.png'
 PLAY_GAME_BUTTON = '../../front_end/assets/buttons/play_game_button.png'
+SETTINGS_BUTTON = '../../front_end/assets/buttons/settings_button.png'
+MAIN_MENU_BUTTON = '../../front_end/assets/buttons/main_menu_button.png'
+
 
 # Add the number images
 NUMBER_ZERO = "../../front-end/assets/sub_grid_square.png"
