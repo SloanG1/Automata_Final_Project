@@ -41,6 +41,9 @@ class Sudoku:
             return True
         row, col = empty_location
 
+        return self.generate_rows_cols(row, col)
+
+    def generate_rows_cols(self, row, col):
         for num in self.generate_random_number_list():
             if self.check_validity(row, col, num):
                 self.get_builder_sudoku()[row][col] = num
@@ -71,9 +74,8 @@ class Sudoku:
         return is_valid
 
     def get_remove_numbers(self):
-        removed_numbers = 0
         diff_dict = {"easy":20, "medium":30, "hard":40}
-        removed_numbers = diff_dict.get(self.get_difficulty())
+        removed_numbers = int(str(diff_dict.get(self.get_difficulty())))
         return removed_numbers
 
     def generate_unsolved_sudoku(self):

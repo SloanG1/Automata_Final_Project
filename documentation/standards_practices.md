@@ -6,6 +6,12 @@ File Names:
 Directory Names:
     Directory names must be lowercase and in snake case
 
+File Structure:
+    functions should be no longer than 15 lines in length
+    functions should always be in snake case and all in lowercase
+    Classes should always be in snake case and in title
+    Absolute variables should always be completely capitalized
+
 Code Files:
     python code must be in proper OOP format with Data attributes, Init, Helpers, Getters, and Setters
     Imported code must be located at the top of each file

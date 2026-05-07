@@ -58,19 +58,22 @@ class Sudoku_Window:
                 number = sudoku_game[row][col]
                 image = self.get_number_images(number)
                 try:
-                    grid_num_img = pygame.image.load(image).convert_alpha()
-
-                    x_pos = 270 + (col * 40)
-                    y_pos = 190 + (row * 40)
-
-                    sub_grid_square = Button(width=42, height=42, x_pos=x_pos, y_pos=y_pos, image=grid_num_img)
-
-                    sub_grid_square.draw(self.get_def_window())
-
-                    self.get_game_board_array()[row][col] = sub_grid_square
+                    self.create_grid_image(col, row, image)
 
                 except TypeError:
                     pass
+
+    def create_grid_image(self, col, row, image):
+        grid_num_img = pygame.image.load(image).convert_alpha()
+
+        x_pos = 270 + (col * 40)
+        y_pos = 190 + (row * 40)
+
+        sub_grid_square = Button(width=42, height=42, x_pos=x_pos, y_pos=y_pos, image=grid_num_img)
+
+        sub_grid_square.draw(self.get_def_window())
+
+        self.get_game_board_array()[row][col] = sub_grid_square
 
     # This will draw the main grid
     def draw_grid(self):
